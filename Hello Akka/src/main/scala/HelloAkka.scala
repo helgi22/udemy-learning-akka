@@ -1,5 +1,4 @@
-import akka.actor.{ ActorRef, ActorSystem, Props, Actor }
-import scala.concurrent.duration._
+import akka.actor.{Actor, ActorSystem, Props}
 
 
 // Define Actor Messages
@@ -22,5 +21,6 @@ object HelloAkkaScala extends App {
 
   // Send WhoToGreet Message to actor
   greeter ! WhoToGreet("Akka")
-
+  greeter ! WhoToGreet("Helgi")
+  greeter ! WhoToGreet("World!!!")
 }
