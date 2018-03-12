@@ -7,4 +7,4 @@ scalaVersion := "2.11.2"
 sbtVersion := "0.13.5"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor" % "2.3.11")
+  "com.typesafe.akka" %% "akka-actor" % "2.4.0")
