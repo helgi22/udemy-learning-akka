@@ -10,11 +10,8 @@ class ActorCreation {
 
 //Music Controller Messages
 object MusicController {
-
   sealed trait ControllerMsg
-
   case object Play extends ControllerMsg
-
   case object Stop extends ControllerMsg
 
   def props = Props[MusicController]
@@ -30,11 +27,8 @@ class MusicController extends Actor {
 
 //Music player Messages
 object MusicPlayer {
-
   sealed trait PlayMsg
-
   case object StopMusic extends PlayMsg
-
   case object StartMusic extends PlayMsg
 
 }
