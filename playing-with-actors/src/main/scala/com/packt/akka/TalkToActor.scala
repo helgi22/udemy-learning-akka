@@ -1,12 +1,13 @@
 package com.packt.akka
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
-import akka.util.Timeout
-import scala.concurrent.duration._
 import akka.pattern.ask
+import akka.util.Timeout
 import com.packt.akka.Checker.{BlackUser, CheckUser, WhiteUser}
 import com.packt.akka.Recorder.NewUser
 import com.packt.akka.Storage.AddUser
+
+import scala.concurrent.duration._
 
 case class User(username: String, email: String)
 
