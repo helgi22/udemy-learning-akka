@@ -66,7 +66,7 @@ class Hera extends Actor {
 
   def receive = {
     case msg => 
-      println(s"Hera received ${msg}")
+      println(s"Hera received $msg")
       childRef ! msg
       Thread.sleep(100)
   }

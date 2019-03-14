@@ -2,7 +2,6 @@ package com.packt.akka
 
 import akka.actor.{Actor, ActorRef, ActorSystem, Props, Terminated}
 
-
 class Ares(athena: ActorRef) extends Actor {
 
   override def preStart() = {
@@ -23,7 +22,7 @@ class Athena extends Actor {
 
   def receive = {
     case msg => 
-      println(s"Athena received ${msg}")
+      println(s"Athena received $msg")
       context.stop(self)
   }
 
@@ -41,6 +40,5 @@ object Monitoring extends App {
   athena ! "Hi"
 
   system.terminate()
-
 
 }

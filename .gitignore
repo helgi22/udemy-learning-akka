@@ -19,6 +19,7 @@ project/plugins/project/
 .idea/
 #assignment.sbt
 #build.sbt
+project/
 project/project
 project/target
 #src/

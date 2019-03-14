@@ -1,6 +1,5 @@
 import akka.actor.{Actor, ActorSystem, Props}
 
-
 // Define Actor Messages
 case class WhoToGreet(who: String)
 
@@ -23,4 +22,5 @@ object HelloAkkaScala extends App {
   greeter ! WhoToGreet("Akka")
   greeter ! WhoToGreet("Helgi")
   greeter ! WhoToGreet("World!!!")
+  system.terminate()
 }

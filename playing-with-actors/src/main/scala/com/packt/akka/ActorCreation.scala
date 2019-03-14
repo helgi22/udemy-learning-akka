@@ -34,7 +34,7 @@ object MusicPlayer {
 }
 
 //Music Player
-class MusicPlayer extends Actor {
+sealed class MusicPlayer extends Actor {
   override def receive: Receive = {
     case StopMusic => println("I don't wont stop music ")
     case StartMusic =>
@@ -53,7 +53,7 @@ object Creation extends App {
   player ! StartMusic
 
   //  Setd StopMusic to actor
-//  player ! StopMusic
+  player ! StopMusic
 
   //  Shutdown system
   system.terminate()
