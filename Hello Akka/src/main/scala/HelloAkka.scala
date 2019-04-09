@@ -5,7 +5,7 @@ case class WhoToGreet(who: String)
 
 // Define Greeter Actor
 class Greeter extends Actor {
-  def receive = {
+  override def receive: PartialFunction[Any, Unit] = {
     case WhoToGreet(who) => println(s"Hello $who")
   }
 }

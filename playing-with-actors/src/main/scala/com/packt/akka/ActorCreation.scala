@@ -4,17 +4,13 @@ import akka.actor.{Actor, ActorSystem, Props}
 import com.packt.akka.MusicController.{Play, Stop}
 import com.packt.akka.MusicPlayer.{StartMusic, StopMusic}
 
-class ActorCreation {
-
-}
-
 //Music Controller Messages
 object MusicController {
   sealed trait ControllerMsg
   case object Play extends ControllerMsg
   case object Stop extends ControllerMsg
 
-  def props = Props[MusicController]
+  def props: Props = Props[MusicController]
 }
 
 //Music controller
@@ -31,11 +27,12 @@ object MusicPlayer {
   case object StopMusic extends PlayMsg
   case object StartMusic extends PlayMsg
 
+  def props: Props = Props[MusicPlayer]
 }
 
 //Music Player
 sealed class MusicPlayer extends Actor {
-  override def receive: Receive = {
+   def receive: Receive = {
     case StopMusic => println("I don't wont stop music ")
     case StartMusic =>
       val controller = context.actorOf(MusicController.props, "controller")
@@ -47,8 +44,8 @@ sealed class MusicPlayer extends Actor {
 object Creation extends App {
   //  Create the creation System actor
   val system = ActorSystem("creation")
-  //  Crate player actor
-  val player = system.actorOf(Props[MusicPlayer], "player")
+  //  Create player actor
+  val player = system.actorOf(MusicPlayer.props, "player")
   //  Sent Start music Message to actor
   player ! StartMusic
 

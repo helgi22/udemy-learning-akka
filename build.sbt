@@ -1,3 +1,4 @@
+//https://github.com/pbassiner/sbt-multi-project-example/blob/master/build.sbt
 name := "udemy-learning-akka"
 organization in ThisBuild := "com.galaykovskiy"
 scalaVersion in ThisBuild := "2.12.8"
@@ -17,7 +18,8 @@ lazy val hello = (project in file("Hello Akka"))
 lazy val playingWithActors = (project in file("playing-with-actors"))
   .settings(
     commonSettings,
-    libraryDependencies ++= commonDependencies
+    libraryDependencies ++= commonDependencies,
+    mainClass in (Compile, run) := Some("com.packt.akka.Creation")
   )
 
 lazy val dependencies =
