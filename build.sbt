@@ -5,7 +5,7 @@ scalaVersion in ThisBuild := "2.12.8"
 version in ThisBuild := "1.0"
 
 lazy val root = project
-  .in( file("."))
+  .in(file("."))
   .aggregate(hello, playingWithActors)
   .settings(update / aggregate := false)
 
@@ -19,13 +19,27 @@ lazy val playingWithActors = (project in file("playing-with-actors"))
   .settings(
     commonSettings,
     libraryDependencies ++= commonDependencies,
-    mainClass in (Compile, run) := Some("com.packt.akka.Creation")
+    mainClass in(Compile, run) := Some("com.packt.akka.Creation")
+  )
+
+lazy val actorPaths = (project in file("actor-paths"))
+  .settings(
+    commonSettings,
+    libraryDependencies ++= commonDependencies,
+    mainClass in(Compile, run) := Some("com.packt.akka.App")
+  )
+
+lazy val routing = (project in file("routing"))
+  .settings(
+    commonSettings,
+    libraryDependencies ++= commonDependencies,
+    mainClass in(Compile, run) := Some("com.packt.akka.App")
   )
 
 lazy val dependencies =
   new {
-    val akkaAktorV   = "2.5.21"
-//
+    val akkaAktorV = "2.5.21"
+    //
     val akkaAktor = "com.typesafe.akka" %% "akka-actor" % akkaAktorV
   }
 
@@ -38,7 +52,7 @@ lazy val commonSettings = Seq(
   resolvers ++= Seq(
     "Local Maven Repository" at "file://" + Path.userHome.absolutePath + "/.m2/repository",
     Resolver.sonatypeRepo("releases"),
-//    Resolver.sonatypeRepo("snapshots")
+    //    Resolver.sonatypeRepo("snapshots")
   )
 )
 

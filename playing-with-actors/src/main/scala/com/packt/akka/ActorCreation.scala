@@ -32,11 +32,11 @@ object MusicPlayer {
 
 //Music Player
 sealed class MusicPlayer extends Actor {
-   def receive: Receive = {
-    case StopMusic => println("I don't wont stop music ")
+  override def receive: Receive = {
     case StartMusic =>
       val controller = context.actorOf(MusicController.props, "controller")
       controller ! Play
+    case StopMusic => println("I don't wont stop music ")
     case _ => println("Unknown Message")
   }
 }
