@@ -35,6 +35,15 @@ lazy val routing = (project in file("routing"))
     libraryDependencies ++= commonDependencies,
     mainClass in(Compile, run) := Some("com.packt.akka.App")
   )
+                        
+lazy val hotswapBehavior = (project in file("hotswap-behavior"))
+  .settings(
+    commonSettings,
+    libraryDependencies ++= commonDependencies,
+    mainClass in(Compile, run) := Some("com.packt.akka.FiniteStateMachine")
+  )
+
+
 
 lazy val dependencies =
   new {
