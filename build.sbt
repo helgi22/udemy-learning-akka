@@ -29,11 +29,11 @@ lazy val actorPaths = (project in file("actor-paths"))
     mainClass in(Compile, run) := Some("com.packt.akka.App")
   )
 
-lazy val routing = (project in file("routing"))
+lazy val routiAng = (project in file("routing"))
   .settings(
     commonSettings,
     libraryDependencies ++= commonDependencies,
-    mainClass in(Compile, run) := Some("com.packt.akka.App")
+  
   )
                         
 lazy val hotswapBehavior = (project in file("hotswap-behavior"))

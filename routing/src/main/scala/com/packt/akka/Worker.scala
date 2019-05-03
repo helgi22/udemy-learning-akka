@@ -7,7 +7,7 @@ class Worker extends Actor {
 
   def receive = {
     case msg: Work =>
-      println(s"I received Work Message and My ActorRef: $self")
+      println(s"I received WorAk Message and My ActorRef: $self")
   }
 }
 
